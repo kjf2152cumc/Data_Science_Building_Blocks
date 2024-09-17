@@ -77,7 +77,30 @@ view(pups_df)
 ```
 
 
+## Read CSV Options
 
+Skip some rows and turn off column names: 
+
+```{r}
+litters_df = 
+  read_csv(file = "data_import_examples/FAS_litters.csv", 
+    col_names = FALSE, 
+    skip = 1) 
+```
+
+What about missing data? 
+
+```{r}
+litters_df = 
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv",
+    na = c("NA", "", ".")
+  )
+
+```
+```{r, echo=FALSE}
+view(litters_df)
+```
 
 
 
