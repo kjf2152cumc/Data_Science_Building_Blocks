@@ -148,7 +148,7 @@ pulse_df = read_sas("data_import_examples/public_pulse_data.sas7bdat")
 pulse_df
 ```
 
-
+Note, never use read.csv(), its not good. Doesn't help you like Tibble does. Don't use dollar signs either. 
 
 
 
