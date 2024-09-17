@@ -8,7 +8,8 @@ Kaleb J. Frierson
   - [Import the FAS Litters CSV](#import-the-fas-litters-csv)
   - [Changing Column Names](#changing-column-names)
 - [Learning Assessment](#learning-assessment)
-  - [Read CSV Options](#read-csv-options)
+- [Read CSV Options](#read-csv-options)
+- [Excel Files](#excel-files)
 
 # Notes
 
@@ -179,7 +180,7 @@ tail(pups_df, 15)
 pups_df = janitor::clean_names(pups_df)
 ```
 
-## Read CSV Options
+# Read CSV Options
 
 Skip some rows and turn off column names:
 
@@ -217,3 +218,40 @@ litters_df =
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+The code below will pull a variable from the dataset and call it
+something new if you want to do that (not necessary), then takes the
+mean of that variable.
+
+``` r
+litters_df = janitor::clean_names(litters_df) 
+
+oweight= pull(litters_df, gd0_weight)
+oweight
+```
+
+    ##  [1] 19.7 27.0 26.0 28.5   NA   NA   NA   NA   NA 28.5 28.0   NA   NA   NA   NA
+    ## [16] 17.0 21.4   NA   NA   NA 28.0 23.5 22.6   NA 21.7 24.4 19.5 24.3 22.6 22.2
+    ## [31] 23.8 22.6 23.8 25.5 23.9 24.5   NA   NA 26.9 27.5 28.5 33.4 21.8 25.4 20.0
+    ## [46] 21.8 25.6 23.5 25.5
+
+``` r
+mean(oweight, na.rm = TRUE)
+```
+
+    ## [1] 24.37941
+
+What if we code group as a factor variable?
+
+``` r
+litters_df = 
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv", 
+    na = c("NA","","."),
+    col_types= cols(
+      Group= col_factor()
+    )
+  )
+```
+
+# Excel Files

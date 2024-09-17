@@ -77,7 +77,7 @@ view(pups_df)
 ```
 
 
-## Read CSV Options
+# Read CSV Options
 
 Skip some rows and turn off column names: 
 
@@ -98,9 +98,45 @@ litters_df =
   )
 
 ```
+
+
 ```{r, echo=FALSE}
 view(litters_df)
 ```
+
+The code below will pull a variable from the dataset and call it something new if you want to do that (not necessary), then takes the mean of that variable. 
+
+```{r}
+litters_df = janitor::clean_names(litters_df) 
+
+oweight= pull(litters_df, gd0_weight)
+oweight
+
+mean(oweight, na.rm = TRUE)
+```
+
+What if we code group as a factor variable? 
+
+```{r}
+litters_df = 
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv", 
+    na = c("NA","","."),
+    col_types= cols(
+      Group= col_factor()
+    )
+  )
+
+```
+
+
+# Excel Files
+
+
+
+
+
+
 
 
 
