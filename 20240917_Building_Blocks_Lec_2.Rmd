@@ -5,26 +5,23 @@ date: "2024-09-17"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Notes
 
-## R Markdown
+Today is data wrangling lecture. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Tibbles are data frames, slightly different. Much better. Intended to solve problems that have emerged with data frames. Faster, more memory efficient, force you to do best practices. By default, anything that you import using tidyverse code will be a tibble. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+So what is a tibble? 
 
-```{r cars}
-summary(cars)
-```
+80/20 rule: 80% of import cases only take 20% of your time. 20% however will take like 80% of your time. 
 
-## Including Plots
+Need to learn readr package, haven, readxl 
 
-You can also embed plots, for example:
+Readr is great for csv files and is common way to import. Readxl is great for excel spreadsheets. Haven is great for bringing data from other packages. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Should be thoughtful about your data. Know what it should look like. See things that might be wrong, and why are they wrong? Something should be a number but it isn't, why is that the case? 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+When you are doing data wrangling, you want the most raw data. It helps you get to know the data and makes the entire process reproducible. 
+
+
+
