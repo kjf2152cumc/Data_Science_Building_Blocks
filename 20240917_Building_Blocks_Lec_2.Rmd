@@ -1,8 +1,10 @@
 ---
-title: "20240917_Building_Blocks_Lecture_2"
+title: "Data Wrangling Lecture"
 author: "Kaleb J. Frierson"
 date: "2024-09-17"
-output: html_document
+output: 
+  github_document: 
+    toc: TRUE
 ---
 
 # Notes
@@ -24,5 +26,43 @@ Should be thoughtful about your data. Know what it should look like. See things 
 When you are doing data wrangling, you want the most raw data. It helps you get to know the data and makes the entire process reproducible. 
 
 # Data Import
+
+```{r setup, echo = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+We will be importing data within this document. Using R projects makes relative paths very easy. So as long as your data is in your project, its easy and doesn't require an absolute path. 
+
+## Import the FAS Litters CSV
+
+```{r litters import}
+litters_df = read_csv("data_import_examples/FAS_litters.csv")
+
+head(litters_df)
+tail(litters_df, 15)
+
+```
+
+```{r eval = FALSE}
+
+view(litters_df)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
