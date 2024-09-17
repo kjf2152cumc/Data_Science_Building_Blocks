@@ -40,26 +40,41 @@ litters_df = read_csv("data_import_examples/FAS_litters.csv")
 
 head(litters_df)
 tail(litters_df, 15)
-
 ```
 
 ```{r eval = FALSE}
-
 view(litters_df)
-
 ```
 
 
+## Changing Column Names
 
 
+```{r}
+litters_df = janitor::clean_names(litters_df)
+```
+
+By default, clean names puts it into lower snake case across variables. The Janitor package is used to clean up a lot of data things. Since clean names is the only function that I need, I can use one line of code to say use this function from this package. 
 
 
+# Learning Assessment
 
+```{r import pups}
+pups_df = read_csv("data_import_examples/FAS_pups.csv")
+```
 
+```{r}
+head(pups_df, 15)
+tail(pups_df, 15)
+```
 
+```{r}
+pups_df = janitor::clean_names(pups_df)
+```
 
-
-
+```{r, echo=FALSE}
+view(pups_df)
+```
 
 
 
